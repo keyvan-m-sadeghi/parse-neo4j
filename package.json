@@ -3,6 +3,7 @@
   "version": "0.5.1",
   "description": "Parse results from neo4j's http endpoint to normal JSON",
   "main": "index.js",
+  "jsnext:main": "./src/index.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack"
   },

@@ -193,3 +193,6 @@ Becomes:
     },
 ]
 ```
+
+## License
+[MIT](https://github.com/satratech/parse-neo4j/blob/master/LICENSE)
