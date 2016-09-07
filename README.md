@@ -31,9 +31,9 @@ var result = session
 ```
 Then you can parse the results:
 ```javascript
-var parse = require('parse-neo4j');
+var parser = require('parse-neo4j');
 var parsedResult = result
-    .then(parse)
+    .then(parser.parse)
     .then(function(parsed){
         parsed.forEach(function(parsedRecord) {
             console.log(parsedRecord);
@@ -43,6 +43,7 @@ var parsedResult = result
         console.log(parseError);
     });
 ```
+`parser.parseRecord` could also be used for parsing a single record.
 
 ## Example
 This:
