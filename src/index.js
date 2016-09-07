@@ -62,7 +62,7 @@ const parseNeo4jResponse = response => {
 
 const parse = neo4jHttpResponse => {
     try {
-        parseNeo4jResponse(neo4jHttpResponse);
+        return parseNeo4jResponse(neo4jHttpResponse);
     }
     catch (error) {
         throw new Error(`Parse error: ${error.message}`);
