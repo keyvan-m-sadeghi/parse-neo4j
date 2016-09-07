@@ -177,16 +177,16 @@ Becomes:
 [
     {
         "key1": {
-            "field1": "..."
-            "number": "42"
+            "field1": "...",
+            "number": "42",
             "date": 1460183280000
         },
         "key2": {}
     },
     {
         "key1": {
-            "field1": "..."
-            "number": "2"
+            "field1": "...",
+            "number": "2",
             "date": 1460183280000
         },
         "key2": {}
