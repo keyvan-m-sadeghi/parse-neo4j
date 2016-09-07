@@ -1,0 +1,21 @@
+{
+  "name": "parse-neo4j",
+  "version": "0.5.0",
+  "description": "parse results from neo4j's http endpoint to normal JSON",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:satratech/parse-neo4j.git"
+  },
+  "keywords": [
+    "endpoint",
+    "http",
+    "parser",
+    "neo4j"
+  ],
+  "author": "Keyvan Mir Mohammad Sadeghi <keyvan.m.sadeghi@gmail.com>",
+  "license": "MIT"
+}
