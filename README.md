@@ -31,7 +31,7 @@ var result = session
 ```
 Then you can parse the results:
 ```javascript
-var parse = require('parse-neo4j);
+var parse = require('parse-neo4j');
 var parsedResult = result
     .then(parse)
     .then(function(parsed){
