@@ -16,30 +16,30 @@ function * enumerate(array) {
 
 const hasProperties = obj => obj.properties && obj.identity && obj.identity.low;
 
-const parseField = field => {
+const parseRecord = record => {
     // If null or value
-    if (!field || typeof field !== 'object')
-        return field;
+    if (!record || typeof record !== 'object')
+        return record;
     else
         // If it's a number
-        if ((field.low || field.low === 0) && field.high === 0)
-            return field.low;
+        if ((record.low || record.low === 0) && record.high === 0)
+            return record.low;
         // If it's an array
-        else if (field['0']) {
+        else if (record['0']) {
             const result = [];
             let index = 0;
-            let current = field['0'];
+            let current = record['0'];
             while (current) {
-                result.push(parseField(current));
+                result.push(parseRecord(current));
                 index++;
-                current = field[String(index)];
+                current = record[String(index)];
             }
             return result;
         } else { // It's an object by this point
-            const properties = hasProperties(field) ? field.properties : field;
+            const properties = hasProperties(record) ? record.properties : record;
             const result = {};
             for (let [key, value] of keyValues(properties)) {
-                value = parseField(value);
+                value = parseRecord(value);
                 result[key] = value;
             }
             return result;
@@ -50,23 +50,26 @@ const parseNeo4jResponse = response => {
     const result = [];
     for (const record of response.records)
         if (record.length == 1)
-            result.push(parseField(record._fields[0]));
+            result.push(parseRecord(record._fields[0]));
         else {
             const parsedRecord = {};
             for (const [index, key] of enumerate(record.keys))
-                parsedRecord[key] = parseField(record._fields[index]);
+                parsedRecord[key] = parseRecord(record._fields[index]);
             result.push(parsedRecord);
         }
     return result;
 };
 
-const parse = neo4jHttpResponse => {
-    try {
-        return parseNeo4jResponse(neo4jHttpResponse);
-    }
-    catch (error) {
-        throw new Error(`Parse error: ${error.message}`);
-    }
+const parser = {
+    parse: neo4jHttpResponse => {
+        try {
+            return parseNeo4jResponse(neo4jHttpResponse);
+        }
+        catch (error) {
+            throw new Error(`Parse error: ${error.message}`);
+        }
+    },
+    parseRecord: parseRecord
 };
 
-export default parse;
+export default parser;
