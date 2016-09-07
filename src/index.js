@@ -69,7 +69,7 @@ const parser = {
             throw new Error(`Parse error: ${error.message}`);
         }
     },
-    parseRecord: parseRecord
+    parseRecord
 };
 
 export default parser;
