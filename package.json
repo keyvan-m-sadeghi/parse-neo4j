@@ -1,6 +1,6 @@
 {
   "name": "parse-neo4j",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Parse results from neo4j's http endpoint to normal JSON",
   "main": "index.js",
   "jsnext:main": "./src/index.js",
