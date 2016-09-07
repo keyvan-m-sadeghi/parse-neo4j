@@ -1,7 +1,18 @@
 /**
  * Created by keyvan on 8/27/16.
  */
-import {enumerate, keyValues} from './util';
+function * keyValues(obj) {
+    for (const key of Object.keys(obj))
+        yield [key, obj[key]];
+}
+
+function * enumerate(array) {
+    let index = 0;
+    for (const element of array) {
+        yield [index, element];
+        index++;
+    }
+}
 
 const hasProperties = obj => obj.properties && obj.identity && obj.identity.low;
 
@@ -49,4 +60,13 @@ const parseNeo4jResponse = response => {
     return result;
 };
 
-export default parseNeo4jResponse;
+const parse = neo4jHttpResponse => {
+    try {
+        parseNeo4jResponse(neo4jHttpResponse);
+    }
+    catch (error) {
+        throw new Error(`Parse error: ${error.message}`);
+    }
+};
+
+export default parse;
