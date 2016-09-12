@@ -22,8 +22,11 @@ const parseRecord = record => {
         return record;
     else
         // If it's a number
-        if ((record.low || record.low === 0) && record.high === 0)
-            return record.low;
+        if (record.low || record.low === 0)
+            if (record.high === 0)
+                return record.low;
+            else
+                return {low: record.low, high: record.high};
         // If it's an array
         else if (record['0']) {
             const result = [];
