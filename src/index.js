@@ -25,8 +25,9 @@ const parseRecord = record => {
         return record;
     else
         // If it's a number
-        if (record.low || record.low === 0)
-            if (record.high === 0 || (record.high === -1 && record.low < 0))
+        if (Object.keys(record).length === 2 &&
+            typeof record.low === 'number' && typeof record.high === 'number')
+            if ((record.high === 0 && record.low >=0) || (record.high === -1 && record.low < 0))
                 return record.low;
             else
                 return to64BitsIntegerString(record.high, record.low);
