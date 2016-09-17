@@ -1,6 +1,9 @@
 /**
  * Created by keyvan on 8/27/16.
  */
+
+import {to64BitsIntegerString} from './integer64';
+
 function * keyValues(obj) {
     for (const key of Object.keys(obj))
         yield [key, obj[key]];
@@ -23,10 +26,10 @@ const parseRecord = record => {
     else
         // If it's a number
         if (record.low || record.low === 0)
-            if (record.high === 0)
+            if (record.high === 0 || record.high === -1)
                 return record.low;
             else
-                return {low: record.low, high: record.high};
+                return to64BitsIntegerString(record.high, record.low);
         // If it's an array
         else if (record['0']) {
             const result = [];
