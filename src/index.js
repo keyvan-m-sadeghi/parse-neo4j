@@ -41,6 +41,8 @@ const parseRecord = record => {
         } else { // It's an object by this point
             const properties = hasProperties(record) ? record.properties : record;
             const result = {};
+            if (record.identity)
+                result.id = parseRecord(record.identity);
             for (let [key, value] of keyValues(properties)) {
                 value = parseRecord(value);
                 result[key] = value;
