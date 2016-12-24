@@ -49,13 +49,22 @@ var parsedResult = result
 
 ## Example
 
-This output:
+Assuming below query:
+```cypher
+MATCH (a:Label1)
+MATCH (a)-[:Another]->(b)
+RETURN a AS key1, b AS key2
+ORDER BY a.date DESC
+LIMIT 2
+```
+
+You get this output:
 ```JSON
 [
     {
         "key1": {
             "field1": "...",
-            "number": "42",
+            "number": 42,
             "date": 1460183280000
         },
         "key2": {}
@@ -63,7 +72,7 @@ This output:
     {
         "key1": {
             "field1": "...",
-            "number": "2",
+            "number": 2,
             "date": 1460183280000
         },
         "key2": {}
@@ -162,7 +171,7 @@ As opposed to:
    ],
    "summary":{
       "statement":{
-         "text":"MATCH (a:Label1)\nMATCH (a)-[:Another]->(au)\nRETURN a AS key1, au AS key2\nORDER BY a.date DESC\nSKIP {skip} LIMIT {limit}",
+         "text":"MATCH (a:Label1)\nMATCH (a)-[:Another]->(b)\nRETURN a AS key1, b AS key2\nORDER BY a.date DESC\nLIMIT 2",
          "parameters":{
             "skip":{
                "low":10,
