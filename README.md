@@ -1,5 +1,7 @@
 [![npm version](https://badge.fury.io/js/parse-neo4j.svg)](https://www.npmjs.com/package/parse-neo4j)
+
 # parse-neo4j
+
 Neo4j's http endpoint produces result that contains complete query information.
 
 `parse-neo4j` helps those who only want what they've returned in the query as normal JSON.
@@ -46,7 +48,30 @@ var parsedResult = result
 `parser.parseRecord` could also be used for parsing a single record.
 
 ## Example
-This:
+
+This output:
+```JSON
+[
+    {
+        "key1": {
+            "field1": "...",
+            "number": "42",
+            "date": 1460183280000
+        },
+        "key2": {}
+    },
+    {
+        "key1": {
+            "field1": "...",
+            "number": "2",
+            "date": 1460183280000
+        },
+        "key2": {}
+    },
+]
+```
+
+As opposed to:
 ```JSON
 {
    "records":[
@@ -172,27 +197,6 @@ This:
       ]
    }
 }
-```
-Becomes:
-```JSON
-[
-    {
-        "key1": {
-            "field1": "...",
-            "number": "42",
-            "date": 1460183280000
-        },
-        "key2": {}
-    },
-    {
-        "key1": {
-            "field1": "...",
-            "number": "2",
-            "date": 1460183280000
-        },
-        "key2": {}
-    },
-]
 ```
 
 ## License

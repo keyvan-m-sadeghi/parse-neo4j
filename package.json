@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:satratech/parse-neo4j.git"
+    "url": "git@github.com:assister-ai/parse-neo4j.git"
   },
   "keywords": [
     "endpoint",
@@ -20,7 +20,7 @@
   "author": "Keyvan Mir Mohammad Sadeghi <keyvan.m.sadeghi@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/satratech/parse-neo4j/issues"
+    "url": "https://github.com/assister-ai/parse-neo4j/issues"
   },
   "devDependencies": {
     "babel": "^6.5.2",
