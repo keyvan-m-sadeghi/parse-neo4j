@@ -20,13 +20,6 @@ var driver = neo4j.driver("bolt://localhost", neo4j.auth.basic("neo4j", "neo4j")
 var session = driver.session();
 var result = session
     .run("MERGE (james:Person {name : {nameParam} }) RETURN james.name", { nameParam:'James' })
-    .then(function(result){
-        result.records.forEach(function(record) {
-            console.log(record._fields);
-        });
-        // Completed!
-        session.close();
-    })
     .catch(function(error) {
         console.log(error);
     });

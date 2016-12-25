@@ -1,13 +1,5 @@
 var webpack = require('webpack');
 var path = require('path');
-var fs = require("file-system");
-
-var mods = {};
-fs.readdirSync("node_modules")
-    .filter(x => [".bin"].indexOf(x) === -1)
-    .forEach(mod => {
-        mods[mod] = "commonjs " + mod;
-    });
 
 var plugins = [];
 
@@ -24,7 +16,6 @@ var config = {
         libraryTarget: 'umd',
         umdNamedDefine: true
     },
-    externals: mods,
     module: {
         loaders: [
             // Support for ES6 modules and the latest ES syntax.

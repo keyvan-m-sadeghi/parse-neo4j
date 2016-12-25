@@ -71,16 +71,13 @@ const parseNeo4jResponse = response => {
     return result;
 };
 
-const parser = {
-    parse: neo4jHttpResponse => {
-        try {
-            return parseNeo4jResponse(neo4jHttpResponse);
-        }
-        catch (error) {
-            throw new Error(`Parse error: ${error.message}`);
-        }
-    },
-    parseRecord
+const parse = neo4jHttpResponse => {
+    try {
+        return parseNeo4jResponse(neo4jHttpResponse);
+    }
+    catch (error) {
+        throw new Error(`Parse error: ${error.message}`);
+    }
 };
 
-export default parser;
+export {parse, parseRecord};
