@@ -202,4 +202,4 @@ As opposed to:
 ```
 
 ## License
-[MIT](https://github.com/satratech/parse-neo4j/blob/master/LICENSE)
+[MIT](https://github.com/assister-ai/parse-neo4j/blob/master/LICENSE)
