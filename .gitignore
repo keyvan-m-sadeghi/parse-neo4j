@@ -1,6 +1,7 @@
 *.js
 *.js.map
 !src/**/*.js
+!index.js
 !webpack.config.js
 
 # Created by https://www.gitignore.io/api/linux,webstorm,node
@@ -49,7 +50,7 @@ fabric.properties
 
 # *.iml
 # modules.xml
-# .idea/misc.xml 
+# .idea/misc.xml
 # *.ipr
 
 

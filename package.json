@@ -2,7 +2,7 @@
   "name": "parse-neo4j",
   "version": "0.6.8",
   "description": "Parse results from neo4j's http endpoint to normal JSON",
-  "main": "./src/index.js",
+  "main": "index.js",
   "jsnext:main": "./src/index.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack"
