@@ -34,12 +34,8 @@ const parseRecord = record => {
         // If it's an array
         else if (record['0']) {
             const result = [];
-            let index = 0;
-            let current = record['0'];
-            while (current) {
-                result.push(parseRecord(current));
-                index++;
-                current = record[String(index)];
+            for(let current of record){
+              result.push(parseRecord(current));
             }
             return result;
         } else { // It's an object by this point
