@@ -32,7 +32,7 @@ const parseRecord = record => {
             else
                 return to64BitsIntegerString(record.high, record.low);
         // If it's an array
-        else if (record['0']) {
+        else if (typeof(record['0']) !== 'undefined') {
             const result = [];
             let index = 0;
             let current = record['0'];
