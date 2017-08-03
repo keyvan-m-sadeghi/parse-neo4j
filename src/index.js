@@ -36,7 +36,7 @@ const parseRecord = record => {
             const result = [];
             let index = 0;
             let current = record['0'];
-            while (current) {
+            while (typeof(current) !== 'undefined') {
                 result.push(parseRecord(current));
                 index++;
                 current = record[String(index)];
