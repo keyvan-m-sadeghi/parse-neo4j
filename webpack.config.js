@@ -1,37 +1,32 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
-var plugins = [];
+const plugins = [];
 
-var config = {
+const config = {
     target: 'node',
     entry: {
         './index': './src/index'
     },
     devtool: 'source-map',
     output: {
-        path: './',
+        path: path.resolve(__dirname, './'),
         filename: '[name].js',
         library: '[name]',
         libraryTarget: 'umd',
         umdNamedDefine: true
     },
     module: {
-        loaders: [
-            // Support for ES6 modules and the latest ES syntax.
+        rules: [
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules)/,
-                loader: "babel"
+                loader: 'babel-loader'
             }
         ]
 },
-    resolveLoader: {
-        root: path.join(__dirname, 'node_modules')
-    },
     resolve: {
-        root: path.resolve('./src'),
-        extensions: ['', '.js']
+        extensions: ['.js']
     },
     plugins: plugins
 };
