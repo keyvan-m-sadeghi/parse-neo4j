@@ -17,7 +17,7 @@ function * enumerate(array) {
     }
 }
 
-const hasProperties = obj => obj.properties && obj.identity && obj.identity.low;
+const hasProperties = obj => obj.properties && obj.identity && (typeof obj.identity.low === 'number');
 
 const parseRecord = record => {
     // If null or value
