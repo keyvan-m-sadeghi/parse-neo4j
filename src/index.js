@@ -45,7 +45,7 @@ const parseRecord = record => {
         } else { // It's an object by this point
             const properties = hasProperties(record) ? record.properties : record;
             if (!record.identity && Object.keys(properties).length === 0)
-                return [];
+                return {};
             const result = {};
             if (record.identity)
                 result.id = parseRecord(record.identity);
